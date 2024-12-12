@@ -83,6 +83,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import retrofit2.http.Query
 
 class MainActivity : ComponentActivity() {
     private val themeViewModel: ThemeViewModel by viewModels()
@@ -199,8 +200,12 @@ data class Coord(
 )
 
 interface ApiService{
-    @GET("forecast?q=tampere&units=metric&appid=f867623f069ff04995ed916f3b3f8695")
-    suspend fun getTampereWeather(): WeatherResponse
+    @GET("forecast")
+    suspend fun getWeatherByCity(
+        @Query("q") city: String,
+        @Query("units") units: String = "metric",
+        @Query("appid") apiKey: String = "f867623f069ff04995ed916f3b3f8695"
+    ): WeatherResponse
 }
 
 object RetrofitInstance{
@@ -222,23 +227,24 @@ fun MainView(themeViewModel: ThemeViewModel){
     val navController = rememberNavController()
     var forecast by remember { mutableStateOf<WeatherResponse?>(null) }
     var isLoading by remember { mutableStateOf(true) }
-    var storedData by remember { mutableStateOf(Pair("", false)) }
+    var storedData by remember { mutableStateOf(Pair("Tampere", false)) }
     val context = LocalContext.current
     val itemClass = remember { StoredItemsClass(context) }
 
     LaunchedEffect(Unit) {
         itemClass.getStoredValues().collect { data ->
-            storedData = data
+            val cityName = if (data.first.isEmpty()) "Tampere" else data.first
+            storedData = data.copy(first = cityName)
             themeViewModel.setTheme(data.second)
         }
     }
 
-    LaunchedEffect(Unit) {
-
-        // Initial data fetching
+    LaunchedEffect(storedData.first) {
+        isLoading = true
+        // Data fetching
         withContext(Dispatchers.IO) {
             try {
-                forecast = RetrofitInstance.apiService.getTampereWeather()
+                forecast = RetrofitInstance.apiService.getWeatherByCity(storedData.first)
             } catch (e: Exception) {
                 e.printStackTrace()
             } finally {
@@ -266,7 +272,7 @@ fun MainView(themeViewModel: ThemeViewModel){
             ) {
                 composable("home") { HomeView(navController, forecast, isLoading) }
                 composable("details") { DetailsView(navController) }
-                composable("settings") { SettingsView(navController, themeViewModel, itemClass) }
+                composable("settings") { SettingsView(navController, themeViewModel, itemClass, storedData) }
             }
         }
     )

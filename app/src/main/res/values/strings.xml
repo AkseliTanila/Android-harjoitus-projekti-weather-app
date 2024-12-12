@@ -15,4 +15,6 @@
     <string name="light_theme_indicator">Light Theme</string>
     <string name="about_page_main_details">This app uses real weather data from OpenWeatherMap. It uses forecast from the chosen location for every 3 hours for 5 days.</string>
     <string name="open_precipitation_map_title">Open Precipitation Map</string>
+    <string name="target_city_textbox_title">Target City</string>
+    <string name="save_city_button_text">Save City</string>
 </resources>

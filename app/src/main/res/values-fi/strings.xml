@@ -15,4 +15,6 @@
     <string name="light_theme_indicator">Vaalea Teema</string>
     <string name="about_page_main_details">Sovellus käyttää oikeaa sää dataa OpenWeatherMapista. Se käyttää sää ennustetta 3 tunnin väleiltä 5 päivän ajalta.</string>
     <string name="open_precipitation_map_title">Avaa Sadetutka</string>
+    <string name="target_city_textbox_title">Kohde Kaupunki</string>
+    <string name="save_city_button_text">Tallenna Kaupunki</string>
 </resources>
