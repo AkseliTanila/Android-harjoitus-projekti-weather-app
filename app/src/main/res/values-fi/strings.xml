@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalProjectWeatherApp</string>
+    <string name="about_nav_title">Tietoa</string>
+    <string name="home_nav_title">Koti</string>
+    <string name="settings_nav_title">Asetukset</string>
+    <string name="feels_like">Tuntuu kuin</string>
+    <string name="wind_speed">Tuulen nopeus</string>
+    <string name="humidity">Kosteus</string>
+    <string name="unable_to_load_data">Tietojen lataus epäonnistui</string>
+    <string name="loading_weather_data">Ladataan sään tietoja</string>
+    <string name="about_page_title">Tietoa</string>
+    <string name="settings_page_title">Asetukset</string>
+    <string name="dark_theme_indicator">Tumma Teema</string>
+    <string name="light_theme_indicator">Vaalea Teema</string>
+    <string name="about_page_main_details">Sovellus käyttää oikeaa sää dataa OpenWeatherMapista. Se käyttää sää ennustetta 3 tunnin väleiltä 5 päivän ajalta.</string>
+    <string name="open_precipitation_map_title">Avaa Sadetutka</string>
+</resources>

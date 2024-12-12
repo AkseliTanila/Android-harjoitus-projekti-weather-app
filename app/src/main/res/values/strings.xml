@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FinalProjectWeatherApp</string>
+    <string name="weather_app" translatable="false">OpenWeatherApp</string>
+    <string name="about_nav_title">About</string>
+    <string name="home_nav_title">Home</string>
+    <string name="settings_nav_title">Settings</string>
+    <string name="feels_like">Feels like</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="humidity">Humidity</string>
+    <string name="unable_to_load_data">Unable to load data</string>
+    <string name="loading_weather_data">Loading weather data</string>
+    <string name="about_page_title">About</string>
+    <string name="settings_page_title">Settings</string>
+    <string name="dark_theme_indicator">Dark Theme</string>
+    <string name="light_theme_indicator">Light Theme</string>
+    <string name="about_page_main_details">This app uses real weather data from OpenWeatherMap. It uses forecast from the chosen location for every 3 hours for 5 days.</string>
+    <string name="open_precipitation_map_title">Open Precipitation Map</string>
+</resources>
